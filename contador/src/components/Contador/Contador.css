@@ -1,0 +1,23 @@
+.contador-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: aquamarine;
+    border-radius: 15px;
+}
+
+.contador-btn{
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+    background-color: rgb(107, 235, 111);
+    box-shadow: 1px solid black;
+    border-radius: 15px;
+}
+
+.contador-span{
+    font-size: 50px;
+}
