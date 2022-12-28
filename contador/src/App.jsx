@@ -1,8 +1,12 @@
-import { Main } from "./components/Main/Main";
+// import { Main } from "./components/Main/Main";
+import MainClass from "./components/Main/MainClass";
 
 function App() {
   return (
-    <Main />
+    <>
+      {/* <Main /> */}
+      <MainClass />
+    </>
   );
 }
 
