@@ -1,23 +1,24 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 export const Formulario = ({ paquetes, setPaquetes }) => {
 
+    const formRef = useRef(null)
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target.nombre.value);
-        console.log(event.target.peso.value);
 
         let paquete = {
             id: paquetes.length == 0 ? 1 : paquetes[paquetes.length - 1 ].id + 1,
             nombre: event.target.nombre.value,
-            peso: event.target.peso.value
+            peso: event.target.peso.value,
+            imagen: event.target.image.value,
         }
-    
+        formRef.current.reset()
         setPaquetes( [ ...paquetes, paquete ] )
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} ref={formRef}>
             <div className="row mt-3 mx-3">
                 <div className="col-6">
                     <div className="form-group">
@@ -29,6 +30,12 @@ export const Formulario = ({ paquetes, setPaquetes }) => {
                     <div className="form-group">
                         <label htmlFor="peso">Peso</label>
                         <input type="number" className="form-control mt-2" id="peso" name='peso'  placeholder="Peso.." />
+                    </div>
+                </div>
+                <div className="col-12 mt-3">
+                    <div className="form-group">
+                        <label htmlFor="image">Imagen</label>
+                        <input type="text" className="form-control mt-2" id="image" name='image'  placeholder="https://..." />
                     </div>
                 </div>
             </div>

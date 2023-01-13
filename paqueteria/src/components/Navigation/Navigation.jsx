@@ -20,6 +20,12 @@ const Navigation = () => {
                         <NavLink to="/paquetes" className='nav-link'>
                             Paquetes
                         </NavLink>
+                        <NavLink to="/usememo" className='nav-link'>
+                            UseMemo
+                        </NavLink>
+                        <NavLink to="/usecallback" className='nav-link'>
+                            UseCallback
+                        </NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
