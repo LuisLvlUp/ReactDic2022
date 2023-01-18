@@ -10,6 +10,7 @@ import { UseMemo } from '../UseMemo/UseMemo';
 export const Main = () => {
 
     const [paquetes, setPaquetes] = useState([])
+    
 
     return (
         <>

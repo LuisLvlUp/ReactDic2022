@@ -1,11 +1,18 @@
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from "react-router-dom";
+import { ThemeContext } from '../../App';
 
 const Navigation = () => {
+
+    const [darkTheme, setDarkTheme] = useContext(ThemeContext);
+
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg={ darkTheme ? 'dark' : 'primary'} variant="dark">
             <Container>
                 <Navbar.Brand>React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -26,6 +33,16 @@ const Navigation = () => {
                         <NavLink to="/usecallback" className='nav-link'>
                             UseCallback
                         </NavLink>
+                        <div className='nav-link' style={{width: '15px', height: '15px'}} 
+                            onClick={() => setDarkTheme(!darkTheme)}
+                        >
+                            {
+                                darkTheme ?
+                                    <FontAwesomeIcon icon={faSun} />
+                                    :
+                                    <FontAwesomeIcon icon={faMoon} />
+                            }
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

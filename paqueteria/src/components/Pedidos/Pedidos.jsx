@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { ThemeContext } from '../../App';
 
 export const Pedidos = ({ paquetes }) => {
 
@@ -20,11 +21,13 @@ export const Pedidos = ({ paquetes }) => {
   useEffect(() => {
     console.log(detalle)
   }, [detalle])
+
+  const [darkTheme, setDarkTheme] = useContext(ThemeContext)
   
 
   return (
     <div className="card">
-      <h5 className="card-header">
+      <h5 className={ darkTheme ? `card-header bg-dark text-light` : `card-header`}>
         Nuevo Pedido
       </h5>
       <div className="card-body">
