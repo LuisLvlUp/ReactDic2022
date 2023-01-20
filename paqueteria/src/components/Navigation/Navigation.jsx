@@ -33,6 +33,9 @@ const Navigation = () => {
                         <NavLink to="/usecallback" className='nav-link'>
                             UseCallback
                         </NavLink>
+                        <NavLink to="/todo-list" className='nav-link'>
+                            Todo List
+                        </NavLink>
                         <div className='nav-link' style={{width: '15px', height: '15px'}} 
                             onClick={() => setDarkTheme(!darkTheme)}
                         >

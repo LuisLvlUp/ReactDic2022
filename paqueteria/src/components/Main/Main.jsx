@@ -4,6 +4,7 @@ import { Home } from '../Home/Home'
 import Navigation from '../Navigation/Navigation';
 import { Paquetes } from '../Paquetes/Paquetes'
 import { Pedidos } from '../Pedidos/Pedidos'
+import { TodoList } from '../TodoList/Todos';
 import { UseCallback } from '../UseCallback/UseCallback';
 import { UseMemo } from '../UseMemo/UseMemo';
 
@@ -22,6 +23,7 @@ export const Main = () => {
                     <Route path="/pedidos" element={<Pedidos paquetes={paquetes}/>} />
                     <Route path="/usememo" element={<UseMemo/>} />
                     <Route path="/usecallback" element={<UseCallback/>} />
+                    <Route path="/todo-list" element={<TodoList/>} />
                     <Route
                         path="*"
                         element={<Navigate to="/" replace />}
