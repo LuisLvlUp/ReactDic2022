@@ -23,6 +23,8 @@ let paquetes = [
     }
 ]
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
@@ -42,14 +44,53 @@ app.get('/paquetes/:id', (req, res) => {
 })
 
 app.post('/paquetes', (req, res) => {
-    res.json(paquetes)
+    console.log(req.body)
+
+    let { nombre, peso, img } = req.body
+
+    let tmpPaquete = {
+        id: paquetes.length == 0 ? 1 : paquetes[paquetes.length - 1 ].id + 1,
+        nombre,
+        peso,
+        img,
+    }
+
+    paquetes.push(tmpPaquete)
+
+    res.json(tmpPaquete)
 })
 
-app.put('/paquetes', (req, res) => {
-    res.json(paquetes)
+app.put('/paquetes/:id', (req, res) => {
+
+    let { id } = req.params
+    let { nombre, peso, img } = req.body
+    let tmpPaquete
+
+    try {
+        for (let [index, item] of paquetes.entries()) {
+            if(id == item.id){
+                tmpPaquete = {
+                    ...item,
+                    nombre, peso, img
+                }
+                paquetes[index] = tmpPaquete
+            }
+        }
+    
+        if(tmpPaquete){
+            console.log()
+            res.status(200).json(tmpPaquete)
+        }else{
+            res.status(404).json({response: 'ID not found'})
+        }
+    } catch (error) {
+        res.status(500).json({ response: error.message })
+    }
 })
 
-app.delete('/paquetes', (req, res) => {
+app.delete('/paquetes/:id', (req, res) => {
+    let id = req.params.id
+    paquetes = paquetes.filter( (item) => item.id != id )
     res.json(paquetes)
 })
 
