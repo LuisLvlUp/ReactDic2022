@@ -1,0 +1,36 @@
+GET http://localhost:3000/ HTTP/1.1
+
+###
+
+GET http://localhost:3000/paquetes HTTP/1.1
+
+###
+
+GET http://localhost:3000/paquetes/1 HTTP/1.1
+
+
+###
+
+POST http://localhost:3000/paquetes HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Paquete 35lb",
+    "peso": 35,
+    "img": "image"
+}
+
+###
+
+PUT http://localhost:3000/paquetes/3 HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Paquete 8lb",
+    "peso": 8,
+    "img": "image8"
+}
+
+###
+
+DELETE http://localhost:3000/paquetes/2 HTTP/1.1
