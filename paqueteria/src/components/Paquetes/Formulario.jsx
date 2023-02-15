@@ -1,6 +1,8 @@
+import { faL } from '@fortawesome/free-solid-svg-icons';
 import React, { useRef } from 'react'
+import { API_URL } from '../../services/API_URL';
 
-export const Formulario = ({ paquetes, setPaquetes }) => {
+export const Formulario = ({ paquetes, setPaquetes, setLoading }) => {
 
     const formRef = useRef(null)
 
@@ -8,13 +10,27 @@ export const Formulario = ({ paquetes, setPaquetes }) => {
         event.preventDefault();
 
         let paquete = {
-            id: paquetes.length == 0 ? 1 : paquetes[paquetes.length - 1 ].id + 1,
             nombre: event.target.nombre.value,
             peso: event.target.peso.value,
-            imagen: event.target.image.value,
+            img: event.target.image.value,
         }
         formRef.current.reset()
-        setPaquetes( [ ...paquetes, paquete ] )
+        // setPaquetes( [ ...paquetes, paquete ] )
+
+        setLoading(true)
+        fetch(`${API_URL}/paquetes`, {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(paquete), // data can be `string` or {object}!
+            headers:{
+              'Content-Type': 'application/json'
+            }
+          }).then(res => res.json())
+          .catch(error => console.error('Error:', error))
+          .then(response => {
+            console.log('Success:', response)
+            setLoading(false)
+        });
+
     }
 
     return (
