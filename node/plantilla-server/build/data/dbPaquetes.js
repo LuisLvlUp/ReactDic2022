@@ -12,12 +12,12 @@ exports.dataPaquetes = [
         id: 2,
         nombre: "Paquete 10lb",
         peso: 10,
-        img: 'imagen2'
+        img: 'https://img.freepik.com/vector-premium/doodle-paquete-dibujos-animados-lindo-logotipo-tienda-regalos-medios-comunicacion-destacan-simbolo-grafico_44769-1534.jpg'
     },
     {
         id: 3,
         nombre: "Paquete 5lb",
         peso: 5,
-        img: 'imagen3'
+        img: 'https://thumbs.dreamstime.com/b/paquete-envuelto-con-el-papel-de-embalaje-marr%C3%B3n-24270482.jpg'
     }
 ];

@@ -17,7 +17,7 @@ class Server {
         this.routes();
     }
     config() {
-        this.app.set('port', process.env.PORT || 3000); //el process es para que si ya exite un puerto definido se toma ese o sino agarra el 3000
+        this.app.set('port', process.env.PORT || 3001); //el process es para que si ya exite un puerto definido se toma ese o sino agarra el 3000
         //ese set es de app, es como si se le hubiera declarado una variable a app
         this.app.use((0, morgan_1.default)('dev')); //el dev es para ver lo que estan pidiendo los clientes
         this.app.use((0, cors_1.default)()); //pedir los datos al servidor 
