@@ -36,6 +36,9 @@ const Navigation = () => {
                         <NavLink to="/todo-list" className='nav-link'>
                             Todo List
                         </NavLink>
+                        <NavLink to="/butacas" className='nav-link'>
+                            Butacas
+                        </NavLink>
                         <div className='nav-link' style={{width: '15px', height: '15px'}} 
                             onClick={() => setDarkTheme(!darkTheme)}
                         >

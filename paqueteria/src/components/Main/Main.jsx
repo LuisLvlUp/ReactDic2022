@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { API_URL } from '../../services/API_URL';
+import { Butacas } from '../Butacas/Butacas';
 import { Home } from '../Home/Home'
 import Navigation from '../Navigation/Navigation';
 import { Paquetes } from '../Paquetes/Paquetes'
@@ -16,13 +17,13 @@ export const Main = () => {
 
     useEffect(() => {
         if (loading) {
-            fetch(`${API_URL}/paquetes`)
-                .then(res => res.json())
-                .then(data => {
-                    setPaquetes(data)
-                    setLoading(false)
-                })
-                .catch(error => console.error('Error:', error));
+            // fetch(`${API_URL}/paquetes`)
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         setPaquetes(data)
+            //         setLoading(false)
+            //     })
+            //     .catch(error => console.error('Error:', error));
         }
     }, [loading])
 
@@ -45,6 +46,7 @@ export const Main = () => {
                     <Route path="/usememo" element={<UseMemo />} />
                     <Route path="/usecallback" element={<UseCallback />} />
                     <Route path="/todo-list" element={<TodoList />} />
+                    <Route path="/butacas" element={<Butacas />} />
                     <Route
                         path="*"
                         element={<Navigate to="/" replace />}
