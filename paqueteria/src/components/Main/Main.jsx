@@ -14,6 +14,8 @@ export const Main = () => {
 
     const [paquetes, setPaquetes] = useState([])
     const [loading, setLoading] = useState(true)
+    const [seleccionados, setSeleccionados] = useState(['00', '34'])
+    const [bloqueados, setBloqueados] = useState(['01'])
 
     useEffect(() => {
         if (loading) {
@@ -46,7 +48,13 @@ export const Main = () => {
                     <Route path="/usememo" element={<UseMemo />} />
                     <Route path="/usecallback" element={<UseCallback />} />
                     <Route path="/todo-list" element={<TodoList />} />
-                    <Route path="/butacas" element={<Butacas />} />
+                    <Route path="/butacas" element={
+                        <Butacas
+                            seleccionados={seleccionados}
+                            setSeleccionados={setSeleccionados}
+                            bloqueados={bloqueados}
+                            setBloqueados={setBloqueados}
+                        />} />
                     <Route
                         path="*"
                         element={<Navigate to="/" replace />}

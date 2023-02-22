@@ -12,5 +12,6 @@
 }
 
 .bloqueado{
+    cursor: not-allowed;
     background-color: rgb(240, 29, 29);
 }

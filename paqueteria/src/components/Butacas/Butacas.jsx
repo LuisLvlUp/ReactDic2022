@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import './Butacas.css'
 
-export const Butacas = () => {
+export const Butacas = ({ seleccionados, setSeleccionados, bloqueados, setBloqueados }) => {
 
     let filas = [...Array(5)]
     let columnas = [...Array(10)]
 
-    const [seleccionados, setSeleccionados] = useState(['00', '34'])
-    const [bloqueados, setBloqueados] = useState(['01'])
-
     useEffect(() => {
         console.log('BLOQUEDOS')
-      console.log(bloqueados)
+        console.log(bloqueados)
     }, [bloqueados])
-    
+
 
     const seleccionar = (butacaID) => {
-        let isSelected = seleccionados.includes(butacaID)
-        if (isSelected) {
-            setSeleccionados(seleccionados.filter((item) => item !== butacaID))
-        } else {
-            setSeleccionados([...seleccionados, butacaID])
+
+        let isBlocked = bloqueados.includes(butacaID)
+        if (!isBlocked) {
+            let isSelected = seleccionados.includes(butacaID)
+            if (isSelected) {
+                setSeleccionados(seleccionados.filter((item) => item !== butacaID))
+            } else {
+                setSeleccionados([...seleccionados, butacaID])
+            }
         }
     }
 
